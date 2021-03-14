@@ -93,11 +93,8 @@ Clone this repo. Then navigate to the project folder.
     
     ### Start the Frontend
 
-        ```
-            cd "project-folder-name"
-
-            cd frontend
-        ```
+        ``` cd "project-folder-name"
+            cd frontend ```
         Now Open a window of terminal.
 
         ```
