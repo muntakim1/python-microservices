@@ -15,7 +15,6 @@ channel.queue_declare(queue='client')
 def callback(ch, method, properties, body):
     print('Receieved in client')
     data = json.loads(body)
-    print(body, data)
     if properties.content_type == "product_created":
         product = Product(id=data['id'], title=data['title'], image=data['image'],
                           price=data['price'], discounted_price=data['discounted_price'])

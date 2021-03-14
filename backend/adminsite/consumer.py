@@ -1,4 +1,4 @@
-# amqps: // jskrsdpc: Vv1dDx6RaCDJIU7KyF4qVtBAHqD6HQ8X@toad.rmq.cloudamqp.com/jskrsdpc
+
 import pika
 
 params = pika.URLParameters(

@@ -24,10 +24,8 @@ def populate_Product():
         product.discounted_price = data['min_discounted_price']
         product.save()
         serialized_obj = serializers.serialize('json', [product, ])
-        print(type(serialized_obj))
         serialized_obj = json.loads(serialized_obj)
-        print(type(serialized_obj))
-        print(serialized_obj)
+
         resdata = {
             "id": serialized_obj[0]['pk'],
             "title": serialized_obj[0]['fields']['title'],

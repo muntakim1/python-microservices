@@ -11,6 +11,8 @@ import LocalMallIcon from "@material-ui/icons/LocalMall";
 import IconButton from "@material-ui/core/IconButton";
 import FullscreenIcon from "@material-ui/icons/Fullscreen";
 import { useDispatchCart } from "./Cart";
+
+
 const useStyles = makeStyles({
   root: {
     width: "250px",
@@ -44,7 +46,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function OutlinedCard(props) {
+export default function ListItem(props) {
   const classes = useStyles();
   const { title, image, price, discounted_price } = props.listItem;
   const [open, setOpen] = React.useState(false);

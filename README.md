@@ -26,14 +26,16 @@ The Backend of the project is implemented by event driven Microservices.
 From the Architecture we can see we have two Microservices. 
 
     - AdminSite
-    Admin site is developed in Django web framework. Admin site have a periodic function which fetech data from a external api then save the data in 
-    database. That periodic funtion will fetch data in between 6 Am to 6 pm. For communicate with other microservice I have used the rabbitmq's cloudmq free
+    Admin site is developed in Django web framework. Admin site 
+    have a periodic function which fetech data from a external 
+    api then save the data in database. That periodic funtion will
+    fetch data in between 6 Am to 6 pm. For communicate with other 
+    microservice I have used the rabbitmq's cloudmq free
     cloud hosted rabbitmq instance.
 
-
-
     - Client
-    Client is responsible for sending product to the frontend. Client Microservice have a consumer function which consumes data which is send by the adminsite 
+    Client is responsible for sending product to the frontend.
+    Client Microservice have a consumer function which consumes data which is send by the adminsite 
     through rabbitmq.
 
 ## Frontend
@@ -64,6 +66,7 @@ Type this in another window.(Make sure you are in the same directory)
 ```
     $ docker-compose exec backend sh
     # python manage.py makemigrations && python manage.py migrate
+    # python manage.py createsuperuser 
 ```
 
 ### Start the Client Microservice
@@ -95,3 +98,5 @@ Now Open a window of terminal.
 docker-compose up --build
 
 ```
+
+Now visit http://localhost:3000 for reactjs & http://localhost:8000 for django-admin.
