@@ -26,19 +26,19 @@ The Backend of the project is implemented by event driven Microservices.
 From the Architecture we can see we have two Microservices. 
 
     - AdminSite
-        Admin site is developed in Django web framework. Admin site have a periodic function which fetech data from a external api then save the data in 
-        database. That periodic funtion will fetch data in between 6 Am to 6 pm. For communicate with other microservice I have used the rabbitmq's cloudmq free
-        cloud hosted rabbitmq instance.
+    Admin site is developed in Django web framework. Admin site have a periodic function which fetech data from a external api then save the data in 
+    database. That periodic funtion will fetch data in between 6 Am to 6 pm. For communicate with other microservice I have used the rabbitmq's cloudmq free
+    cloud hosted rabbitmq instance.
 
 
 
     - Client
-        Client is responsible for sending product to the frontend. Client Microservice have a consumer function which consumes data which is send by the adminsite 
-        through rabbitmq.
+    Client is responsible for sending product to the frontend. Client Microservice have a consumer function which consumes data which is send by the adminsite 
+    through rabbitmq.
 
 ## Frontend
-    Frontend is build with reactjs and Reducer & Context hooks (Better Alternative of Redux). Frontend is also dockerized. Frontend consumes api data which is send
-    from the client microservice. So that if any incident happens in to the adminsite will not affect to the frontend. 
+Frontend is build with reactjs and Reducer & Context hooks (Better Alternative of Redux). Frontend is also dockerized. Frontend consumes api data which is send
+from the client microservice. So that if any incident happens in to the adminsite will not affect to the frontend. 
 
 
 ## Usage
