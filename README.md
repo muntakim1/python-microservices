@@ -48,7 +48,7 @@ From the Architecture we can see we have two Microservices.
 
 Clone this repo. Then navigate to the project folder.
 
-    ### Start the AdminSite Microservice
+### Start the AdminSite Microservice
 
         ```
             cd "project-folder-name"
@@ -70,7 +70,7 @@ Clone this repo. Then navigate to the project folder.
 
         ```
 
-    ### Start the Client Microservice
+### Start the Client Microservice
 
         ```
             cd "project-folder-name"
@@ -91,7 +91,7 @@ Clone this repo. Then navigate to the project folder.
             # python manager.py db migrate && python manager.py db upgrade 
         ```
     
-    ### Start the Frontend
+### Start the Frontend
 
         ``` cd "project-folder-name"
             cd frontend ```
