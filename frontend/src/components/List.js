@@ -52,7 +52,6 @@ export default function List() {
     );
   const handleChange = (e) => {
     e.preventDefault();
-
     setValue(e.target.value);
   };
 
@@ -61,23 +60,17 @@ export default function List() {
       <Input>
         <input type="text" onChange={handleChange} placeholder="Search"></input>
       </Input>
-      <Grid container justify="center">
+      <Grid container justify="center" spacing={1}>
         {data
-          .filter((item) => {
+          .filter(function (item) {
             if (!value) return true;
             if (item.title.toLowerCase().includes(value.toLowerCase())) {
               return true;
             }
           })
-          .map((tile) => (
+          .map((item) => (
             <Grid list>
-              <ListItem
-                key={tile.id}
-                title={tile.title}
-                image={tile.image}
-                price={tile.price}
-                discounted_price={tile.discounted_price}
-              ></ListItem>
+              <ListItem key={item.id} listItem={item}></ListItem>
             </Grid>
           ))}
       </Grid>

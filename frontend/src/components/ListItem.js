@@ -10,7 +10,7 @@ import Modal from "@material-ui/core/Modal";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 import IconButton from "@material-ui/core/IconButton";
 import FullscreenIcon from "@material-ui/icons/Fullscreen";
-
+import { useDispatchCart } from "./Cart";
 const useStyles = makeStyles({
   root: {
     width: "250px",
@@ -46,10 +46,24 @@ const useStyles = makeStyles({
 
 export default function OutlinedCard(props) {
   const classes = useStyles();
+  const { title, image, price, discounted_price } = props.listItem;
   const [open, setOpen] = React.useState(false);
   const handleFullScreenBtn = (e) => {
     e.preventDefault();
     setOpen(true);
+  };
+  const dispatch = useDispatchCart();
+
+  const addToCart = (e) => {
+    e.preventDefault();
+    const item = {
+      title,
+      image,
+      price,
+      discounted_price,
+    };
+    dispatch({ type: "ADD", item });
+    console.log("added", item);
   };
 
   const handleClose = () => {
@@ -61,38 +75,36 @@ export default function OutlinedCard(props) {
       <CardHeader
         avatar={
           <IconButton onClick={handleFullScreenBtn}>
-            <FullscreenIcon></FullscreenIcon>
+            <FullscreenIcon style={{ color: "#FA8907" }}></FullscreenIcon>
           </IconButton>
         }
         action={
-          <IconButton>
-            <LocalMallIcon></LocalMallIcon>
+          <IconButton onClick={addToCart}>
+            <LocalMallIcon style={{ color: "#174674" }}></LocalMallIcon>
           </IconButton>
         }
       />
       <CardContent>
-        <img className={classes.image} src={props.image} alt=""></img>
+        <img className={classes.image} src={image} alt=""></img>
         <Typography
           className={classes.title}
           color="textSecondary"
           gutterBottom
         >
-          {props.title}
+          {title}
         </Typography>
         <Typography
           className={classes.subtitle}
           color="textSecondary"
           gutterBottom
         >
-          {props.discounted_price === props.price ? (
+          {discounted_price === price ? (
             <span>Not available</span>
           ) : (
             <p className={classes.subtitle}>
               Price:{" "}
-              <span style={{ textDecoration: "line-through" }}>
-                {props.price}
-              </span>{" "}
-              {props.discounted_price} BDT
+              <span style={{ textDecoration: "line-through" }}>{price}</span>{" "}
+              {discounted_price} BDT
             </p>
           )}
         </Typography>
@@ -114,8 +126,8 @@ export default function OutlinedCard(props) {
           <CardContent>
             <Grid container justify="center">
               <Grid>
-                <Typography>{props.title}</Typography>
-                <img src={props.image} width="500" height="700" alt=""></img>
+                <Typography>{title}</Typography>
+                <img src={image} width="500" height="700" alt=""></img>
               </Grid>
             </Grid>
           </CardContent>
