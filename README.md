@@ -16,7 +16,7 @@ This project has two parts.
     
 ## Architecture
 
-[Architecture](./project-diagram.png)
+![alt Architecture](./project-diagram.png)
 
 
 ## Backend
@@ -50,54 +50,48 @@ Clone this repo. Then navigate to the project folder.
 
 ### Start the AdminSite Microservice
 
-        ```
-            cd "project-folder-name"
+```
+    cd "project-folder-name"
+    cd backend\adminsite
+``` 
+Now Open two window of terminal. (In one terminal type below commands)
 
-            cd backend\adminsite
-        ```
-        Now Open two window of terminal. (In one terminal type below commands)
+```
+    docker-compose up --build
+```
+Type this in another window.(Make sure you are in the same directory)
 
-        ```
-            docker-compose up --build
-
-        ```
-        Type this in another window.(Make sure you are in the same directory)
-
-        ```    
-            $ docker-compose exec backend sh
-
-            # python manage.py makemigrations && python manage.py migrate
-
-        ```
+```
+    $ docker-compose exec backend sh
+    # python manage.py makemigrations && python manage.py migrate
+```
 
 ### Start the Client Microservice
 
-        ```
-            cd "project-folder-name"
+```
+    cd "project-folder-name"
+    cd backend\client
+```
+Now Open two window of terminal. (In one terminal type below commands)
 
-            cd backend\client
-        ```
-        Now Open two window of terminal. (In one terminal type below commands)
+```
+    docker-compose up --build
+```
+Type this in another window.(Make sure you are in the same directory)
 
-        ```
-            docker-compose up --build
-
-        ```
-        Type this in another window.(Make sure you are in the same directory)
-
-        ```    
-            $ docker-compose exec backend sh
-
-            # python manager.py db migrate && python manager.py db upgrade 
-        ```
+```    
+    $ docker-compose exec backend sh
+    # python manager.py db migrate && python manager.py db upgrade 
+```
     
 ### Start the Frontend
 
-        ``` cd "project-folder-name"
-            cd frontend ```
-        Now Open a window of terminal.
+``` cd "project-folder-name"
+    cd frontend 
+```
+Now Open a window of terminal.
 
-        ```
-            docker-compose up --build
+```
+docker-compose up --build
 
-        ```
+```
