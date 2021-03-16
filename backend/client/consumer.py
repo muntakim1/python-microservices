@@ -5,7 +5,7 @@ from main import Product, db
 
 
 params = pika.URLParameters(
-    "amqps://jskrsdpc:Vv1dDx6RaCDJIU7KyF4qVtBAHqD6HQ8X@toad.rmq.cloudamqp.com/jskrsdpc")
+    "your-cloudmq-address")
 
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
